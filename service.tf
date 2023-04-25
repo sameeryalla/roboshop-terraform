@@ -1,4 +1,7 @@
 
+variable "instance_type" {
+  default="t3.micro"
+}
 
 data "aws_ami" "centos" {
   owner       = ["973714476881"]
@@ -11,7 +14,7 @@ data "aws_ami" "centos" {
 
 resource "aws_instance" "frontend" {
   ami           = data.aws_ami.centos.image_id
-  instance_type = "t3.micro"
+  instance_type = var.instance_type
 
   tags = {
     Name = "frontend"
@@ -24,7 +27,7 @@ output "frontend" {
 
 resource "aws_instance" "mongodb" {
   ami           = data.aws_ami.centos.image_id
-  instance_type = "t3.micro"
+  instance_type = var.instance_type
 
   tags = {
     Name = "mongodb"
@@ -37,12 +40,36 @@ output "mongodb" {
 
 resource "aws_instance" "catalogue" {
   ami           = data.aws_ami.centos.image_id
-  instance_type = "t3.micro"
+  instance_type = var.instance_type
 
   tags = {
-    Name = "catalogue"
+    Name = "Catalogue"
   }
 }
 output "catalogue" {
   value=aws_instance.catalogue.public_ip
+}
+
+resource "aws_instance" "redis" {
+  ami           = data.aws_ami.centos.image_id
+  instance_type = var.instance_type
+
+  tags = {
+    Name = "Redis"
+  }
+}
+output "redis" {
+  value=aws_instance.redis.public_ip
+}
+
+resource "aws_instance" "user" {
+  ami           = data.aws_ami.centos.image_id
+  instance_type = var.instance_type
+
+  tags = {
+    Name = "User"
+  }
+}
+output "redis" {
+  value=aws_instance.user.public_ip
 }
