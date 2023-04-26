@@ -26,7 +26,7 @@ output "frontend" {
 }
 
 resource "aws_route53_record" "frontend"{
-  zone_id = ""
+  zone_id = "Z04900482TS501XM50DYJ"
   name="frontend.sameerdevops.online"
   type="A"
   ttl=30
@@ -44,6 +44,14 @@ resource "aws_instance" "mongodb" {
 
 output "mongodb" {
   value=aws_instance.mongodb.public_ip
+}
+
+resource "aws_route53_record" "mongodb"{
+  zone_id = "Z04900482TS501XM50DYJ"
+  name="mongodb.sameerdevops.online"
+  type="A"
+  ttl=30
+  records=[aws_instance.mongodb.private_ip]
 }
 
 resource "aws_instance" "catalogue" {
