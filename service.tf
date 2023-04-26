@@ -25,6 +25,14 @@ output "frontend" {
   value=aws_instance.frontend.public_ip
 }
 
+resource "aws_route53_record" "frontend"{
+  zone_id = ""
+  name="frontend.sameerdevops.online"
+  type="A"
+  ttl=30
+  records=[aws_instance.frontend.private_ip]
+}
+
 resource "aws_instance" "mongodb" {
   ami           = data.aws_ami.centos.image_id
   instance_type = var.instance_type
@@ -70,6 +78,6 @@ resource "aws_instance" "user" {
     Name = "User"
   }
 }
-output "redis" {
+output "user" {
   value=aws_instance.user.public_ip
 }
