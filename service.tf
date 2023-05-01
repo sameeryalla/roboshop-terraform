@@ -27,6 +27,8 @@ resource "aws_instance" "instance" {
     Name = var.components[ count.index ]
   }
 }
+
+
 #by using above loop we automated below all instances creation so commented below code
 #resource "aws_instance" "frontend" {
 #  ami           = data.aws_ami.centos.image_id
@@ -34,7 +36,7 @@ resource "aws_instance" "instance" {
 #  vpc_security_group_ids = [ data.aws_security_group.allow-all.id ]
 #
 #  tags = {
-#    Name = "frontend"
+#     Name = var.components[0]
 #  }
 #}
 #
