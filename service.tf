@@ -26,43 +26,43 @@ variable "components2"{
       name="frontend"
       instance_type="t3.small"
     }
-    MangoDB={
-      name="mangodb"
+    mongodb={
+      name="mongodb"
       instance_type="t3.small"
     }
-    Catalogue={
+    catalogue={
       name="catalogue"
       instance_type="t3.micro"
     }
-    Redis={
+    redis={
       name="redis"
       instance_type="t3.small"
     }
-    User={
+    user={
       name="user"
       instance_type="t3.micro"
     }
-    Cart={
+    cart={
       name="cart"
       instance_type="t3.micro"
     }
-    MySQL={
+    mysql={
       name="mysql"
       instance_type="t3.small"
     }
-    Shipping={
+    shipping={
       name="shipping"
       instance_type="t3.medium"
     }
-    RabbitMQ={
+    rabbitMQ={
       name="rabbitMQ"
       instance_type="t3.small"
     }
-    Payment={
+    payment={
       name="payment"
       instance_type="t3.small"
     }
-    Dispatch={
+    dispatch={
       name="dispatch"
       instance_type="t3.small"
     }
