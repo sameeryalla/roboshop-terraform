@@ -16,17 +16,86 @@ data "aws_security_group" "allow-all"{
   name =  "allow-all"
 }
 
+variable "components2"{
+  default={
+    frontend={
+      name="frontend"
+      instance_type="t3.small"
+    }
+    MangoDB={
+      name="mangodb"
+      instance_type="t3.small"
+    }
+    Catalogue={
+      name="catalogue"
+      instance_type="t3.micro"
+    }
+    Redis={
+      name="redis"
+      instance_type="t3.small"
+    }
+    User={
+      name="user"
+      instance_type="t3.micro"
+    }
+    Cart={
+      name="cart"
+      instance_type="t3.micro"
+    }
+    MySQL={
+      name="mysql"
+      instance_type="t3.small"
+    }
+    Shipping={
+      name="shipping"
+      instance_type="t3.medium"
+    }
+    RabbitMQ={
+      name="rabbitMQ"
+      instance_type="t3.small"
+    }
+    Payment={
+      name="payment"
+      instance_type="t3.small"
+    }
+    Dispatch={
+      name="dispatch"
+      instance_type="t3.small"
+    }
+  }
+}
 
 resource "aws_instance" "instance" {
-  count=length(var.components)
+  for_each=var.components2
   ami           = data.aws_ami.centos.image_id
-  instance_type = var.instance_type
+  instance_type = each.value["instance_type"]
   vpc_security_group_ids = [ data.aws_security_group.allow-all.id ]
 
   tags = {
-    Name = var.components[ count.index ]
+    Name = each.value["name"]
   }
 }
+
+resource "aws_route53_record" "records"{
+  for_each=var.components2
+  zone_id = "Z04900482TS501XM50DYJ"
+  name="${each.value["name"]}.sameerdevops.online"
+  type="A"
+  ttl=30
+  records=[aws_instance.instance[each.value["name"]].private_ip]
+}
+
+
+#resource "aws_instance" "instance" {
+ # count=length(var.components)
+  #ami           = data.aws_ami.centos.image_id
+  #instance_type = var.instance_type
+  #vpc_security_group_ids = [ data.aws_security_group.allow-all.id ]
+
+  #tags = {
+   # Name = var.components[ count.index ]
+ # }
+#}
 
 
 #by using above loop we automated below all instances creation so commented below code
