@@ -7,7 +7,7 @@ variable "instance_type" {
 }
 
 variable "zone_id" {
-  default="Z03768149JCXCWHLP01T"
+  default="Z08730703G9Y0903FLVVG"
 }
 
 data "aws_ami" "centos" {
