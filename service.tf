@@ -6,6 +6,10 @@ variable "instance_type" {
   default="t3.micro"
 }
 
+variable "zone_id" {
+  default="Z03768149JCXCWHLP01T"
+}
+
 data "aws_ami" "centos" {
   owners       = ["973714476881"]
   most_recent = true
@@ -78,7 +82,8 @@ resource "aws_instance" "instance" {
 
 resource "aws_route53_record" "records"{
   for_each=var.components2
-  zone_id = "Z04900482TS501XM50DYJ"
+  #zone_id = "Z04900482TS501XM50DYJ"
+  zone_id = var.zone_id
   name="${each.value["name"]}.sameerdevops.online"
   type="A"
   ttl=30
