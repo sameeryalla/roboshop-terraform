@@ -1,4 +1,4 @@
-components2={
+components={
   frontend={
     name="frontend"
     instance_type="t3.small"
@@ -45,4 +45,4 @@ components2={
   }
 }
 
-env="dev"
+env = "dev"
