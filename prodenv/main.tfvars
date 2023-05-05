@@ -1,7 +1,8 @@
-components={
-  frontend={
-    name="frontend"
-    instance_type="t3.small"
+components = {
+
+  frontend = {
+    name = "frontend"
+    instance_type = "t3.small"
   }
   mongodb={
     name="mongodb"
