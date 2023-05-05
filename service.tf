@@ -11,7 +11,6 @@ resource "aws_instance" "instance" {
 }
 
 resource "aws_route53_record" "records"{
-  depends_on = [aws_instance.instance]
   for_each=var.components
   #zone_id = "Z04900482TS501XM50DYJ"
   zone_id = var.zone_id
@@ -22,13 +21,13 @@ resource "aws_route53_record" "records"{
 }
 
 
-resource "null_resource" "provisioner"{
+resource "null_resource" "provisioner" {
   depends_on = [aws_instance.instance,aws_route53_record.records]
   for_each = var.components
   provisioner "remote-exec" {
     connection {
       type = "ssh"
-      user= "root"
+      user= "centos"
       password= "DevOps321"
       host=aws_instance.instance[each.value["name"]].private_ip
     }
