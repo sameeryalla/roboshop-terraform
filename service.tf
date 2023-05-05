@@ -33,7 +33,7 @@ resource "null_resource" "provisioner" {
     }
     inline=[
       "rm -rf learn-shell",
-      "git clone https://github.com/sameeryalla/learn-shell.git",
+      "git clone https://github.com/sameeryalla/learn-shell",
       "cd learn-shell",
       "sudo bash ${each.value["name"]}.sh ${lookup(each.value,"password","null")}"
     ]
