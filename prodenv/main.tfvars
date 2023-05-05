@@ -33,8 +33,8 @@ components={
     instance_type="t3.medium"
     password="roboshop123"
   }
-  rabbitMQ={
-    name="rabbitMQ"
+  rabbitmq={
+    name="rabbitmq"
     instance_type="t3.small"
     password="roboshop123"
   }
