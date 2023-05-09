@@ -1,15 +1,61 @@
 variable "env"{}
 
-variable "components" {}
+variable "app_servers" {}
+variable "databases_servers"{}
 
-variable "components2" {
-  default= [ "frontend","mongodb","catalogue","redis","user","cart","mysql","shipping","rabbitmq","payment","dispatch" ]
+
+
+
+
+variable components2{
+        default={
+  frontend={
+    name="frontend"
+    instance_type="t3.small"
+  }
+  mongodb={
+    name="mongodb"
+    instance_type="t3.small"
+  }
+  catalogue={
+    name="catalogue"
+    instance_type="t3.micro"
+  }
+  redis={
+    name="redis"
+    instance_type="t3.small"
+  }
+  user={
+    name="user"
+    instance_type="t3.micro"
+  }
+  cart={
+    name="cart"
+    instance_type="t3.micro"
+  }
+  mysql={
+    name="mysql"
+    instance_type="t3.small"
+    password="RoboShop@1"
+  }
+  shipping={
+    name="shipping"
+    instance_type="t3.medium"
+    password="RoboShop@1"
+  }
+  rabbitmq={
+    name="rabbitmq"
+    instance_type="t3.small"
+    password="roboshop123"
+  }
+  payment={
+    name="payment"
+    instance_type="t3.small"
+    password="roboshop123"
+  }
+  dispatch={
+    name="dispatch"
+    instance_type="t3.small"
+  }
 }
-
-variable "instance_type" {
-  default="t3.micro"
-}
-
-variable "zone_id" {
-  default="Z08730703G9Y0903FLVVG"
 }
