@@ -9,6 +9,7 @@ resource "aws_instance" "instance" {
 
 }
 
+
 resource "null_resource" "provisioner" {
 
   count=var.provisioner ? 1:0
