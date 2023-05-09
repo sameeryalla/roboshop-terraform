@@ -32,7 +32,7 @@ app_servers={
   }
 }
 
-database-servers={
+database_servers={
   mongodb={
     name="mongodb"
     instance_type="t3.small"
