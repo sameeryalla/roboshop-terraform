@@ -1,11 +1,11 @@
-app_servers={
-  frontend={
-    name="frontend"
-    instance_type="t3.small"
+app_servers = {
+  frontend = {
+    name = "frontend"
+    instance_type = "t3.small"
   }
   catalogue={
-    name="catalogue"
-    instance_type="t3.micro"
+    name = "catalogue"
+    instance_type = "t3.micro"
   }
   user={
     name="user"
