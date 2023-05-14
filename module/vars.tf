@@ -15,6 +15,6 @@ variable "component_name" {}
 variable "password" {}
 
 variable "zone_id" {
-  default="Z08730703G9Y0903FLVVG"
+  default="Z049722618D25ZZYXCHDJ"
 }
 
