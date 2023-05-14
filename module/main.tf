@@ -35,7 +35,7 @@ resource "null_resource" "provisioner" {
 
 resource "aws_route53_record" "records"{
 
-   zone_id = "Z08730703G9Y0903FLVVG"
+   zone_id = "Z049722618D25ZZYXCHDJ"
   #zone_id = var.zone_id
   name="${var.component_name}.sameerdevops.online"
   type="A"
