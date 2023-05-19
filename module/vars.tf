@@ -18,3 +18,5 @@ variable "zone_id" {
   default="Z049722618D25ZZYXCHDJ"
 }
 
+variable "app_type"{}
+
