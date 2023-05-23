@@ -1,9 +1,9 @@
 locals {
   name = var.env != "" ? "${var.component_name}-${var.env}" : var.component_name
   db_commands = [
-    "rm -rf roboshop-shell",
+    "rm -rf learn-shell",
     "git clone https://github.com/sameeryalla/learn-shell",
-    "cd roboshop-shell",
+    "cd learn-shell",
     "sudo bash ${var.component_name}.sh ${var.password}"
   ]
   app_commands = [
