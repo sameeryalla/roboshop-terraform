@@ -51,40 +51,5 @@ app = {
     min_size           = 2
     allow_app_cidr = "web"
   }
-  cart = {
-    name = "cart"
-    instance_type = "t3.micro"
-    subnet_name = "app"
-    desired_capacity   = 2
-    max_size           = 10
-    min_size           = 2
-    allow_app_cidr = "web"
-  }
-  user = {
-    name = "user"
-    instance_type = "t3.micro"
-    subnet_name = "app"
-    desired_capacity   = 2
-    max_size           = 10
-    min_size           = 2
-    allow_app_cidr = "web"
-  }
-  shipping = {
-    name = "shipping"
-    instance_type = "t3.micro"
-    subnet_name = "app"
-    desired_capacity   = 2
-    max_size           = 10
-    min_size           = 2
-    allow_app_cidr = "web"
-  }
-  payment = {
-    name = "payment"
-    instance_type = "t3.micro"
-    subnet_name = "app"
-    desired_capacity   = 2
-    max_size           = 10
-    min_size           = 2
-    allow_app_cidr = "web"
-  }
+
 }
