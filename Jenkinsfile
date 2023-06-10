@@ -5,7 +5,7 @@ pipeline {
         }
     }
      parameters {
-            choice(name: 'env', choice: ['dev','prod'], description: 'pick Environment')
+            choice(name: 'env', choices: ['dev','prod'], description: 'pick Environment')
      }
 
      stages {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage ('Terraform APPLY'){
             steps {
-                        sh 'terraform apply -backend-config=env-${env}/state.vfvars'
+                sh 'terraform apply -backend-config=env-${env}/state.vfvars'
             }
         }
      }
