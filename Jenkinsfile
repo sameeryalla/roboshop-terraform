@@ -1,3 +1,29 @@
-@Library('roboshop') _
+pipeline {
+    agent {
+        node {
+            label 'workstation'
+        }
+    }
+     parameters {
+            choice(name: 'env', choice: ['dev','prod'], description: 'pick Environment')
+     }
 
-terraform()
+     stages {
+        stage ('Terraform INIT'){
+            steps {
+                sh 'terraform init -backend-config=env-${env}/state.vfvars'
+            }
+        }
+        stage ('Terraform APPLY'){
+            steps {
+                        sh 'terraform apply -backend-config=env-${env}/state.vfvars'
+            }
+        }
+     }
+     post {
+        always {
+            clearWs()
+        }
+     }
+
+}
